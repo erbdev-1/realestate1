@@ -5,6 +5,9 @@ import { toast } from "sonner";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+export function safelyAccessProperty(obj: any, property: string) {
+  return obj && obj[property] ? obj[property] : null;
+}
 
 export function formatEnumString(str: string) {
   return str.replace(/([A-Z])/g, " $1").trim();
