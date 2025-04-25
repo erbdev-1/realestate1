@@ -9,4 +9,5 @@ const router = express_1.default.Router();
 router.get("/:cognitoId", tenantControllers_1.getTenant);
 router.put("/:cognito", tenantControllers_1.updateTenant);
 router.post("/", tenantControllers_1.createTenant);
+router.get("/:cognitoId/current-residences", tenantControllers_1.getCurrentResidences);
 exports.default = router;
