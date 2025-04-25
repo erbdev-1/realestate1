@@ -13,6 +13,7 @@ const authMiddleware_1 = require("./middleware/authMiddleware");
 /* ROUTE IMPORT */
 const tenantRoutes_1 = __importDefault(require("./routes/tenantRoutes"));
 const tenantRoutes_2 = __importDefault(require("./routes/tenantRoutes"));
+const propertyRoutes_1 = __importDefault(require("./routes/propertyRoutes"));
 /* CONFIGURATIONS */
 dotenv_1.default.config();
 console.log(process.env.PORT);
@@ -28,6 +29,7 @@ app.use((0, cors_1.default)());
 app.get("/", (req, res) => {
     res.send("This is home route");
 });
+app.use("/properties", propertyRoutes_1.default); //public
 app.use("/tenant", (0, authMiddleware_1.authMiddleware)(["tenant"]), tenantRoutes_1.default);
 app.use("/managers", (0, authMiddleware_1.authMiddleware)(["manager"]), tenantRoutes_2.default);
 /* SERVER */
